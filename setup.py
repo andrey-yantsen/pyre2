@@ -79,9 +79,7 @@ def main():
             ] if re2_prefix else []
     extra_compile_args = ['-O0', '-g'] if DEBUG else [
             '-O3', '-march=native', '-DNDEBUG']
-    # Older GCC version such as on CentOS 6 do not support C++11
-    if not platform.python_compiler().startswith('GCC 4.4.7'):
-        extra_compile_args.append('-std=c++11')
+    extra_compile_args.append('-std=c++11')
     ext_modules = [
         Extension(
             're2',
